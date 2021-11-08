@@ -3,6 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+body{
+background-image:url('https://cdn.pixabay.com/photo/2016/08/24/16/20/books-1617327_960_720.jpg');
+background-repeat:no-repeat;
+background-size:cover;
+}
+</style>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -28,7 +35,16 @@
   </div>
 </nav>
 <body>
-<h1>메인화면</h1>
+<div class="container">
+		<div class="jumbotron">
+			<div class="container">
+				<h1>도서관리 사이트</h1>
+				<p>이 웹 사이트는 도서관리를 목적으로 만들어 졌습니다</p>
+				<a class="btn btn-primary btn-pull" href="login.jsp" role="button">로그인</a>
+				<a class="btn btn-primary btn-pull" href="join.jsp" role="button">회원가입</a>
+			</div>
+		</div>
+	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   </body>
