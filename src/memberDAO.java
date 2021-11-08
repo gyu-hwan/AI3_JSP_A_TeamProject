@@ -9,18 +9,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class memberDAO {
-//	private ArrayList<MemberVO> dtos;
 	private Connection con;
 	private Statement st;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	private ArrayList<memberDTO> memberlist = new ArrayList<>();
+	private ArrayList<memberVO> memberlist = new ArrayList<>();
 	
 	public memberDAO() {
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bbs?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true","root","1234");
+			con=DriverManager.getConnection("jdbc:mysql://218.234.204.205:3306/web?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true","DB_WEB","webadmin01");
 			st = con.createStatement();
 		}
 		catch(Exception e)
@@ -29,9 +28,9 @@ public class memberDAO {
 		}
 	}
 	
-	public ArrayList<memberDTO> AllMember() {
+	public ArrayList<memberVO> AllMember() {
 		String SQL = "select * from web_member";
-		ArrayList<memberDTO> memberlist = new ArrayList<memberDTO>();
+		ArrayList<memberVO> memberlist = new ArrayList<memberVO>();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
 			rs = pstmt.executeQuery();
@@ -41,8 +40,8 @@ public class memberDAO {
 				String userPW = rs.getString("pw");
 				String userName = rs.getString("name");
 				int phone = rs.getInt("phone");
-				memberDTO web_memberDTO = new memberDTO(user_number, userID, userPW, userName, phone);
-				memberlist.add(web_memberDTO);
+				memberVO member = new memberVO(user_number, userID, userPW, userName, phone);
+				memberlist.add(member);
 			}
 			
 		} catch (Exception e) {
