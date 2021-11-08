@@ -6,6 +6,14 @@ String id;
 String pw;
 String name;
 int phone;
+	
+public memberDTO(int user_number,String id,String pw,String name,int phone) {
+	this.user_number=user_number;
+	this.id=id;
+	this.pw=pw;
+	this.name=name;
+	this.phone=phone;
+}
 
 public void setUser_number(int user_number) {
 	this.user_number=user_number;
