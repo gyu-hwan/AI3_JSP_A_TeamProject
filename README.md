@@ -8,7 +8,7 @@
 <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
 <img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white">
 <img src="https://img.shields.io/badge/Eclipse-2c2255?style=for-the-badge&logo=eclipse&logoColor=white">
-<img src="https://img.shields.io/badge/Apache Tomcat9-F8DC75?style=for-the-badge&logo=ApacheTomcat&logoColor=white">  
+<img src="https://img.shields.io/badge/Tomcat-F8DC75?style=for-the-badge&logo=ApacheTomcat&logoColor=white">  
 <img src="https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
   
-###### 2021/11/8~22021/11/12  
+###### 프로젝트 기간 2021/11/8~22021/11/12  
