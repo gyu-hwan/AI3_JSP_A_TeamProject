@@ -1,11 +1,11 @@
 package DTO;
 
 public class memberDTO {
-	int user_number;
-	String id;
-	String pw;
-	String name;
-	int phone;
+	private int user_number;
+	private String id;
+	private String pw;
+	private String name;
+	private int phone;
 
 	public memberDTO(int user_number, String id, String pw, String name, int phone) {
 		this.user_number = user_number;
