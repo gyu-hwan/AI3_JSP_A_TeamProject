@@ -28,7 +28,6 @@
   </div>
 </nav>
   <body>
-  <!-- 회원가입 양식 -->
 	<div class="container">
 		<div class="col-lg-4">
 			<div class="jumbotron" style="padding-top: 20px;">
