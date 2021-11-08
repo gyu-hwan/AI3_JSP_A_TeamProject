@@ -19,10 +19,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#" style="text-align:right">Link 1<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="login.jsp" style="text-align:right">로그인<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" style="text-align:right">Link 2</a>
+        <a class="nav-link" href="join.jsp" style="text-align:right">회원가입</a>
       </li>
     </ul>
   </div>
