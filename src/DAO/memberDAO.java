@@ -24,7 +24,7 @@ public class memberDAO {
 		}
 		catch(Exception e)
 		{
-			System.out.println("µ¥ÀÌ¹öÅ×ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
+			System.out.println("ë°ì´ë²„í…Œì´ìŠ¤ ì—°ê²° ì˜¤ë¥˜: "+e.getMessage());
 		}
 	}
 	
@@ -61,7 +61,7 @@ public class memberDAO {
 			pstmt.setInt(4, phone);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("µ¥ÀÌÅÍº£ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
+			System.out.println("ë°ì´í„°ë² ì´ìŠ¤ ì—°ê²° ì˜¤ë¥˜: "+e.getMessage());
 		}
 	}
 	
@@ -115,17 +115,17 @@ public class memberDAO {
 				rs = pstmt.executeQuery();
 				if (rs.next()) {
 					if(rs.getString(1).equals(pw)) {
-						return 1; //·Î±×ÀÎ ¼º°ø
+						return 1; //ë¡œê·¸ì¸ ì„±ê³µ
 					}
 					else {
-						return 0; //ÆĞ½º¿öµå ºÒÀÏÄ¡
+						return 0; //íŒ¨ìŠ¤ì›Œë“œ ë¶ˆì¼ì¹˜
 					}
 				}
-				return -1; //ID ºÒÀÏÄ¡
+				return -1; //ID ë¶ˆì¼ì¹˜
 			} catch(Exception e)
 			{
-				System.out.println("µ¥ÀÌ¹öÅ×ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
+				System.out.println("ë°ì´ë²„í…Œì´ìŠ¤ ì—°ê²° ì˜¤ë¥˜: "+e.getMessage());
 			}
-			return -2; //¸ğµÎ ºÒÀÏÄ¡ or ¿¡·¯
+			return -2; //ëª¨ë‘ ë¶ˆì¼ì¹˜ or ì—ëŸ¬
 		}
 }
