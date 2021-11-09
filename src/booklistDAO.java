@@ -15,7 +15,7 @@ public class booklistDAO {
 	private Statement st;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	private ArrayList<booklistDTO> booklist = new ArrayList<>();
+	private ArrayList<booklistVO> booklist = new ArrayList<>();
 	
 	public booklistDAO() {
 		try
@@ -26,13 +26,13 @@ public class booklistDAO {
 		}
 		catch(Exception e)
 		{
-			System.out.println("µ¥ÀÌ¹öÅ×ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
+			System.out.println("ë°ì´ë²„í…Œì´ìŠ¤ ì—°ê²° ì˜¤ë¥˜: "+e.getMessage());
 		}
 	}
 	
-	public ArrayList<booklistDTO> AllBook() {
+	public ArrayList<booklistVO> AllBook() {
 		String SQL = "select * from web_booklist";
-		ArrayList<booklistDTO> booklist = new ArrayList<booklistDTO>();
+		ArrayList<booklistVO> booklist = new ArrayList<booklistVO>();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
 			rs = pstmt.executeQuery();
@@ -43,8 +43,8 @@ public class booklistDAO {
 				String publisher = rs.getString("publisher");
 				Date year = rs.getDate("year");
 				int loan = rs.getInt("loan");
-				booklistDTO booklistDTO = new booklistDTO(book_number, title, writer, publisher, year, loan);
-				booklist.add(booklistDTO);
+				booklistVO booklistVO = new booklistVO(book_number, title, writer, publisher, year, loan);
+				booklist.add(booklistVO);
 			}
 			
 		} catch (Exception e) {
@@ -65,7 +65,7 @@ public class booklistDAO {
 			pstmt.setInt(5, loan);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("µ¥ÀÌÅÍº£ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
+			System.out.println("ë°ì´í„°ë² ì´ìŠ¤ ì—°ê²° ì˜¤ë¥˜: "+e.getMessage());
 		}
 	}
 	
