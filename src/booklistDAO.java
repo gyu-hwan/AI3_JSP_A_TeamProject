@@ -9,9 +9,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import DTO.booklistVO;
 
-public class bookDAO {
+
+
+
+
+
+public class booklistDAO {
 //	private ArrayList<MemberVO> dtos;
 	private Connection con;
 	private Statement st;
@@ -19,7 +23,7 @@ public class bookDAO {
 	private ResultSet rs;
 	private ArrayList<booklistVO> booklist = new ArrayList<>();
 
-	public bookDAO() {
+	public booklistDAO() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(
