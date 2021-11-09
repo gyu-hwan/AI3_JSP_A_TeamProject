@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import DTO.boardVO;
 
 public class boardDAO {
 	private Connection con;
@@ -21,7 +22,7 @@ public class boardDAO {
 					"jdbc:mysql://218.234.204.205:3306/web?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true","DB_WEB","webadmin01");
 			st = con.createStatement();
 		} catch (Exception e) {
-			System.out.println("µ¥ÀÌ¹öÅ×ÀÌ½º ¿¬°á ¿À·ù: " + e.getMessage());
+			System.out.println("ÂµÂ¥Ã€ÃŒÂ¹Ã¶Ã…Ã—Ã€ÃŒÂ½Âº Â¿Â¬Â°Ã¡ Â¿Ã€Â·Ã¹: " + e.getMessage());
 		}
 	}
 
