@@ -6,6 +6,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import DTO.replyVO;
 
 public class replyDAO {
 	private Connection con;
@@ -17,11 +20,11 @@ public class replyDAO {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(
-					"jdbc:mysql://218.234.204.205:3306/web?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true",
+					"jdbc:mysql://218.234.204.205:3306/bbs?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true",
 					"DB_WEB", "webadmin01");
 			st = con.createStatement();
 		} catch (Exception e) {
-			System.out.println("¿¬°áÇÏÁö ¸øÇÏ¿´½À´Ï´Ù.: " + e.getMessage());
+			System.out.println("데이터베이스 오류: " + e.getMessage());
 		}
 	}
 
@@ -38,18 +41,40 @@ public class replyDAO {
 		}
 		return "";
 	}
-
-	public int writereply(int reply_idx, int con_num, String name, String id, String pw, String content, Date date) {
-		String SQL = "INSERT INTO reply values (?,?,?,?,?,?,?)";
+	
+	public ArrayList<replyVO> getReplyList(int reply_idx) {
+		String SQL = "select * from reply where reply_idx = ? order by con_num ASC";
+		ArrayList<replyVO> ReplyList = new ArrayList<replyVO>();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
-			pstmt.setInt(1, con_num);
-			pstmt.setInt(2, reply_idx );
-			pstmt.setString(3, name);
-			pstmt.setString(4, id);
-			pstmt.setString(5, pw);
-			pstmt.setString(6, content);
-			pstmt.setString(7, getDate());
+			pstmt.setInt(1, reply_idx);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int con_num = rs.getInt("con_num");
+				String name = rs.getString("name");
+				String id = rs.getString("id");
+				String pw = rs.getString("pw");
+				String content = rs.getString("content");
+				Date date = rs.getDate("date");
+				replyVO reply = new replyVO(con_num, reply_idx, name, id, pw, content, date);
+				ReplyList.add(reply);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ReplyList;
+	}
+
+	public int writereply(int reply_idx, String name, String id, String pw, String content) {
+		String SQL = "INSERT INTO reply(reply_idx,name,id,pw,content,date) values (?,?,?,?,?,?)";
+		try {
+			PreparedStatement pstmt = con.prepareStatement(SQL);
+			pstmt.setInt(1, reply_idx);
+			pstmt.setString(2, name);
+			pstmt.setString(3, id);
+			pstmt.setString(4, pw);
+			pstmt.setString(5, content);
+			pstmt.setString(6, getDate());
 			pstmt.executeUpdate();
 			return 1;
 		} catch (Exception e) {

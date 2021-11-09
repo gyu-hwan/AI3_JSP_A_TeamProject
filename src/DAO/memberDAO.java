@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import DTO.memberVO;
 
 public class memberDAO {
@@ -20,15 +21,15 @@ public class memberDAO {
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://218.234.204.205:3306/web?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true","DB_WEB","webadmin01");
+			con=DriverManager.getConnection("jdbc:mysql://218.234.204.205:3306/bbs?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true",
+					"DB_WEB", "webadmin01");
 			st = con.createStatement();
 		}
 		catch(Exception e)
 		{
-			System.out.println("ë°ì´ë²„í…Œì´ìŠ¤ ì—°ê²° ì˜¤ë¥˜: "+e.getMessage());
+			System.out.println("µ¥ÀÌ¹öÅ×ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
 		}
 	}
-	
 	public ArrayList<memberVO> AllMember() {
 		String SQL = "select * from web_member";
 		ArrayList<memberVO> memberlist = new ArrayList<memberVO>();
@@ -62,7 +63,7 @@ public class memberDAO {
 			pstmt.setInt(4, phone);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("ë°ì´í„°ë² ì´ìŠ¤ ì—°ê²° ì˜¤ë¥˜: "+e.getMessage());
+			System.out.println("µ¥ÀÌÅÍº£ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
 		}
 	}
 	
@@ -116,17 +117,17 @@ public class memberDAO {
 				rs = pstmt.executeQuery();
 				if (rs.next()) {
 					if(rs.getString(1).equals(pw)) {
-						return 1; //ë¡œê·¸ì¸ ì„±ê³µ
+						return 1; //·Î±×ÀÎ ¼º°ø
 					}
 					else {
-						return 0; //íŒ¨ìŠ¤ì›Œë“œ ë¶ˆì¼ì¹˜
+						return 0; //ÆĞ½º¿öµå ºÒÀÏÄ¡
 					}
 				}
-				return -1; //ID ë¶ˆì¼ì¹˜
+				return -1; //ID ºÒÀÏÄ¡
 			} catch(Exception e)
 			{
-				System.out.println("ë°ì´ë²„í…Œì´ìŠ¤ ì—°ê²° ì˜¤ë¥˜: "+e.getMessage());
+				System.out.println("µ¥ÀÌ¹öÅ×ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
 			}
-			return -2; //ëª¨ë‘ ë¶ˆì¼ì¹˜ or ì—ëŸ¬
+			return -2; //¸ğµÎ ºÒÀÏÄ¡ or ¿¡·¯
 		}
 }

@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import DTO.boardVO;
 
 public class boardDAO {
@@ -19,10 +20,11 @@ public class boardDAO {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(
-					"jdbc:mysql://218.234.204.205:3306/web?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true","DB_WEB","webadmin01");
+					"jdbc:mysql://218.234.204.205:3306/bbs?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true",
+					"DB_WEB", "webadmin01");
 			st = con.createStatement();
 		} catch (Exception e) {
-			System.out.println("ì—°ê²°í•˜ì§€ ëª»í•˜ì˜€ìŠµë‹ˆë‹¤.: " + e.getMessage());
+			System.out.println("µ¥ÀÌ¹öÅ×ÀÌ½º ¿¬°á ¿À·ù: " + e.getMessage());
 		}
 	}
 
@@ -139,7 +141,7 @@ public class boardDAO {
 	}
 	
 	public int DeleteBoard(int board_idx) {
-		String SQL = "delete from web_board where board_idx";
+		String SQL = "delete from web_board where board_idx=?";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
 			pstmt.setInt(1, board_idx);
