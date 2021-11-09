@@ -56,6 +56,29 @@ public class booklistDAO {
 		return booklist;
 	}
 	
+	public ArrayList<booklistVO> SearchTitle(String BookTitle) {
+		String SQL = "select*from booklist where title like '%" + BookTitle + "%'";
+		ArrayList<booklistVO> booklist = new ArrayList<booklistVO>();
+		try {
+			pstmt = con.prepareStatement(SQL);
+			rs = st.executeQuery(SQL);
+			while (rs.next()) {
+				int book_number = rs.getInt("book_number");
+				String title = rs.getString("title");
+				String writer = rs.getString("writer");
+				String publisher = rs.getString("publisher");
+				Date year = rs.getDate("year");
+				int loan = rs.getInt("loan");
+				booklistVO booklistVO = new booklistVO(book_number, title, writer, publisher, year, loan);
+				booklist.add(booklistVO);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return booklist;
+	}
+	
 	public void AddBook(String title, String writer, String publisher, String year, int loan) {
 		String SQL="insert into booklist(title,writer,publisher,year,loan) "
 				+ "values(?,?,?,?,?)";
