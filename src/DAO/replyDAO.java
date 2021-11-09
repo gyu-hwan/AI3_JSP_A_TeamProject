@@ -21,7 +21,7 @@ public class replyDAO {
 					"DB_WEB", "webadmin01");
 			st = con.createStatement();
 		} catch (Exception e) {
-			System.out.println("¿¬°áÇÏÁö ¸øÇÏ¿´½À´Ï´Ù.: " + e.getMessage());
+			System.out.println("Â¿Â¬Â°Ã¡Ã‡ÃÃÃ¶ Â¸Ã¸Ã‡ÃÂ¿Â´Â½Ã€Â´ÃÂ´Ã™.: " + e.getMessage());
 		}
 	}
 
@@ -43,8 +43,8 @@ public class replyDAO {
 		String SQL = "INSERT INTO reply values (?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
-			pstmt.setInt(1, reply_idx);
-			pstmt.setInt(2, con_num);
+			pstmt.setInt(1, con_num);
+			pstmt.setInt(2, reply_idx );
 			pstmt.setString(3, name);
 			pstmt.setString(4, id);
 			pstmt.setString(5, pw);
