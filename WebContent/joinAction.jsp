@@ -12,7 +12,7 @@
 	String userID=request.getParameter("userID");
 	String userPassword=request.getParameter("userPassword");
 	String userName=request.getParameter("userName");
-	int userPhone=Integer.parseInt(request.getParameter("userPhone"));
+	int userPhone=Integer.parseInt(request.getParameter("Phone"));
 	
 	memberDAO dao=new memberDAO();
 	dao.signUp(userID,userPassword,userName,userPhone);
