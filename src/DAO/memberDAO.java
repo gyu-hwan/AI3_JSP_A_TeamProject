@@ -21,7 +21,7 @@ public class memberDAO {
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://218.234.204.205:3306/bbs?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true",
+			con=DriverManager.getConnection("jdbc:mysql://218.234.204.205:3306/web?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true",
 					"DB_WEB", "webadmin01");
 			st = con.createStatement();
 		}
