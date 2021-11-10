@@ -9,7 +9,7 @@
         <meta name="author" content="" />
         <title>A팀 프로젝트</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="stylesheet" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="./Resources/css/styles.css" rel="stylesheet" />
     </head>
