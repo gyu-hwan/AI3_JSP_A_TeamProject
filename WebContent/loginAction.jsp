@@ -9,8 +9,8 @@
 	</head>
 	<body>
 	<%
-	String userID=request.getParameter("userID");
-	String userPassword=request.getParameter("userPassword");
+	String userID=request.getParameter("Id");
+	String userPassword=request.getParameter("Pw");
 	
 	memberDAO dao=new memberDAO();
 	int login=dao.login(userID,userPassword);
