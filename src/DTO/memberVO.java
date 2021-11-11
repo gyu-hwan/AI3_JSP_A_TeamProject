@@ -5,9 +5,9 @@ public class memberVO {
 	private String id;
 	private String pw;
 	private String name;
-	private int phone;
+	private String phone;
 
-	public memberVO(int user_number, String id, String pw, String name, int phone) {
+	public memberVO(int user_number, String id, String pw, String name, String phone) {
 		this.user_number = user_number;
 		this.id = id;
 		this.pw = pw;
@@ -47,11 +47,11 @@ public class memberVO {
 		return name;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 }

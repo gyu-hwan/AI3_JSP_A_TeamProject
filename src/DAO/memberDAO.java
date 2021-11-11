@@ -41,7 +41,7 @@ public class memberDAO {
 				String userID = rs.getString("id");
 				String userPW = rs.getString("pw");
 				String userName = rs.getString("name");
-				int phone = rs.getInt("phone");
+				String phone = rs.getString("phone");
 				memberVO member = new memberVO(user_number, userID, userPW, userName, phone);
 				memberlist.add(member);
 			}
