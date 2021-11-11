@@ -27,7 +27,7 @@ public class memberDAO {
 		}
 		catch(Exception e)
 		{
-			System.out.println("µ¥ÀÌ¹öÅ×ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
+			System.out.println("ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: "+e.getMessage());
 		}
 	}
 	public ArrayList<memberVO> AllMember() {
@@ -52,7 +52,7 @@ public class memberDAO {
 		return memberlist;
 	}
 	
-	public void signUp(String id, String pw, String name, int phone) {
+	public void signUp(String id, String pw, String name, String phone) {
 		String SQL="insert into web_member(id,pw,name,phone) "
 				+ "values(?,?,?,?)";
 		try {
@@ -60,10 +60,10 @@ public class memberDAO {
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);
 			pstmt.setString(3, name);
-			pstmt.setInt(4, phone);
+			pstmt.setString(4, phone);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("µ¥ÀÌÅÍº£ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: "+e.getMessage());
 		}
 	}
 	
@@ -117,17 +117,17 @@ public class memberDAO {
 				rs = pstmt.executeQuery();
 				if (rs.next()) {
 					if(rs.getString(1).equals(pw)) {
-						return 1; //·Î±×ÀÎ ¼º°ø
+						return 1; //ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					}
 					else {
-						return 0; //ÆÐ½º¿öµå ºÒÀÏÄ¡
+						return 0; //ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 					}
 				}
-				return -1; //ID ºÒÀÏÄ¡
+				return -1; //ID ï¿½ï¿½ï¿½ï¿½Ä¡
 			} catch(Exception e)
 			{
-				System.out.println("µ¥ÀÌ¹öÅ×ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
+				System.out.println("ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: "+e.getMessage());
 			}
-			return -2; //¸ðµÎ ºÒÀÏÄ¡ or ¿¡·¯
+			return -2; //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ or ï¿½ï¿½ï¿½ï¿½
 		}
 }
