@@ -19,7 +19,7 @@
 	case 1:{
 		System.out.println("로그인 성공");
 		session.setAttribute("userID",userID);
-		response.sendRedirect("./index.jsp");}
+		response.sendRedirect("./main.jsp");}
 	return;
 	case 0:{
 		System.out.println("비밀번호 실패");
