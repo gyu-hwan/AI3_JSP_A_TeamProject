@@ -7,9 +7,12 @@
 
 </head>
 <body>
-	<%
-	session.invalidate();
-	response.sendRedirect("index.jsp");
-	%>
+	<% session.invalidate(); %>
+
+	<script>
+		alert("로그아웃!");
+		location.href = 'index.jsp';
+	</script>
+
 </body>
 </html>
