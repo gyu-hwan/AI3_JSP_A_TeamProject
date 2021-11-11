@@ -6,7 +6,7 @@
 <html>
 	<head>
 	<meta charset="utf-8">
-	<title>A팀 프로젝트-로그인</title>
+	<title>A팀 프로젝트-업데이트</title>
 	</head>
 	<body>
 	<%PrintWriter pw = response.getWriter(); %>
@@ -16,7 +16,7 @@
 	
 	if(userID.contains("\"")||userID.contains("\'")||userID.contains("=")){
 		pw.println("<script>");
-		pw.println("alert('XSS 대책에 위배되었습니다.')");
+		pw.println("alert('XSS취약점이 발견되었습니다.')");
 		pw.println("history.back()");
 		pw.println("</script>");
 	}else {

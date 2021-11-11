@@ -6,7 +6,7 @@
 <html>
 	<head>
 	<meta charset="utf-8">
-	<title>A팀 프로젝트-로그인</title>
+	<title>A팀 프로젝트-업데이트</title>
 	</head>
 	<body>
 	<%PrintWriter pw = response.getWriter(); %>

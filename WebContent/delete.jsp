@@ -44,7 +44,11 @@ background-size:cover;
 <div class="container">
 		<div class="jumbotron">
 			<div class="container">
-				<h3>###님의 회원정보 수정 페이지</h3>
+				<h3>삭제하시려면 본 계정의 id를 입력해 주세요.</h3>
+				<form method="post" action="deleteAction.jsp">
+				<input type="text" class="form-control" placeholder="<%=session.getAttribute("userID")%>" name="_delete" maxlength="20">
+					<input type="submit" class="btn btn-primary form-control" value="회원탈퇴">
+				</form>
 			</div>
 		</div>
 	</div>
