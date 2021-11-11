@@ -124,7 +124,17 @@
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
+						<div class="card-header">
+                          	<p><%=session.getAttribute("userID")%>님</p>
+                          	<p>&nbsp;</p>
+							<a href="memberInfo.jsp""><button class="btn btn-primary" id="button-search" type="button">&nbsp;회원정보</button></a>
+							<a href="logout.jsp"><button class="btn btn-primary" id="button-search" type="button">&nbsp;로그아웃 </button></a>
+						</div>
+					</div>
+                    <div class="card mb-4">
+                    
                         <div class="card-header">도서 검색</div>
+                        
                         <div class="card-body">
                             <div class="input-group">
                                 <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />

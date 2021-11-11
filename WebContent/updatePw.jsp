@@ -44,7 +44,13 @@ background-size:cover;
 <div class="container">
 		<div class="jumbotron">
 			<div class="container">
-				<h3>###님의 회원정보 수정 페이지</h3>
+				<h3><%=session.getAttribute("userID")%>님의 비밀번호를 해당 번호로 재설정합니다.</h3>
+				<form method="post" action="updatePhoneAction.jsp">
+				<div class="form-group">
+					<input type="password" class="form-control" placeholder="비밀번호" name="Password" maxlength="20">
+					<input type="submit" class="btn btn-primary form-control" value="비밀번호 변경">
+				</div>
+				</form>
 			</div>
 		</div>
 	</div>

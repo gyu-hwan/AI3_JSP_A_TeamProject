@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,7 @@ background-size:cover;
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="memberInfo.jsp" style="text-align:right">회원정보<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="memberInfo.jsp" style="text-align:right"><%=session.getAttribute("userID")%>님의 회원정보<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="updatePw.jsp" style="text-align:right">비밀번호 변경</a>
@@ -44,7 +45,7 @@ background-size:cover;
 <div class="container">
 		<div class="jumbotron">
 			<div class="container">
-				<h3>###님의 회원정보 수정 페이지</h3>
+				<h3><%=session.getAttribute("userID")%>님의 회원정보 수정 페이지</h3>
 			</div>
 		</div>
 	</div>
