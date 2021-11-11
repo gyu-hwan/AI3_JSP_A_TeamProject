@@ -20,18 +20,19 @@
 		System.out.println("로그인 성공");
 		session.setAttribute("userID",userID);
 		response.sendRedirect("./main.jsp");}
-	return;
+	break;
 	case 0:{
 		System.out.println("비밀번호 실패");
 		response.sendRedirect("./index.jsp");}
-	return;
+	break;
 	case -1:{
 		System.out.println("아이디 실패");
 		response.sendRedirect("./index.jsp");}
+	break;
 	case -2:{
 		System.out.println("db접속 불가");
 		response.sendRedirect("./index.jsp");}
-	return;
+	break;
 	default:{out.print("비정상 접속"+login);}
 	}
 	%>
