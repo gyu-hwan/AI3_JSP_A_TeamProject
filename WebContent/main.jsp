@@ -25,7 +25,7 @@
                         <li class="nav-item"><a class="nav-link" href="main.jsp">도서관리</a></li>
                         <li class="nav-item"><a class="nav-link" href="board.jsp">게시판</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="logout.jsp">로그아웃</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="memberinfo.jsp">내정보</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="memberInfo.jsp">내정보</a></li>
                     </ul>
                 </div>
             </div>
