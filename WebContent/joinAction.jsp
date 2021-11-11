@@ -9,15 +9,16 @@
 	</head>
 	<body>
 	<%
-	String userID=request.getParameter("userID");
-	String userPassword=request.getParameter("userPassword");
-	String userName=request.getParameter("userName");
+	String userID=request.getParameter("Id");
+	String userPassword=request.getParameter("Pw");
+	String userName=request.getParameter("Name");
 	int userPhone=Integer.parseInt(request.getParameter("Phone"));
 	
 	memberDAO dao=new memberDAO();
 	dao.signUp(userID,userPassword,userName,userPhone);
-	System.out.println("회원가입 성공");
+	System.out.println("회원가입을 시도함");
 	response.sendRedirect("./index.jsp");
+	
 	%>
 	</body>
 </html>
