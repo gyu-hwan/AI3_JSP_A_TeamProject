@@ -31,6 +31,10 @@ body {
 		userID = (String) session.getAttribute("userID");
 	}
 	%>
+
+	<%
+	if (userID == null) {
+	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="index.jsp">Main</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -50,9 +54,6 @@ body {
 			</ul>
 		</div>
 	</nav>
-	<%
-	if (userID == null) {
-	%>
 	<div class="container">
 		<div class="jumbotron">
 			<div class="container">
@@ -66,14 +67,39 @@ body {
 	<%
 	} else {
 	%>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="index.jsp">Main</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item  active"><a class="nav-link"
+					href="main.jsp" style="text-align: right">도서관리<span
+						class="sr-only">(current)</span></a></li>
+				<li class="nav-item "><a class="nav-link" href="board.jsp"
+					style="text-align: right">게시판</a></li>
+				<li class="nav-item "><a class="nav-link" href="memberinfo.jsp"
+					style="text-align: right">내정보</a></li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item  active"><a class="nav-link" href="logout.jsp"
+					style="text-align: right">로그아웃</a></li>
+			</ul>
+		</div>
+	</nav>
 	<div class="container">
 		<div class="jumbotron">
 			<div class="container">
 				<h1>도서관리 사이트</h1>
 				<p>이 웹 사이트는 도서관리를 목적으로 만들어 졌습니다</p>
 				<p>환영합니다</p>
-				<a class="btn btn-primary btn-pull" href="main.jsp" role="button">메인화면</a>			
-				<a class="btn btn-primary btn-pull" href="logout.jsp" role="button">로그아웃</a>			
+				<a class="btn btn-primary btn-pull" href="main.jsp" role="button">메인화면</a>
+				<a class="btn btn-primary btn-pull" href="logout.jsp" role="button">로그아웃</a>
 			</div>
 		</div>
 	</div>
