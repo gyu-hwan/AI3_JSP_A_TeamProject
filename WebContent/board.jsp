@@ -27,8 +27,8 @@
 	int pageNumber = 1;
 	if (request.getParameter("pageNumber") != null) {
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-		pageNumber-=1;
 	}
+	pageNumber-=1;
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="index.jsp">처음으로</a> <a
