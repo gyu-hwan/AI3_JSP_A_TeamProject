@@ -15,6 +15,7 @@ public class boardDAO {
 	private Statement st;
 //	private PreparedStatement pstmt;
 	private ResultSet rs;
+	private int hit;
 
 	public boardDAO() {
 		try {
@@ -24,10 +25,11 @@ public class boardDAO {
 					"DB_WEB", "webadmin01");
 			st = con.createStatement();
 		} catch (Exception e) {
-			System.out.println("���̹����̽� ���� ����: " + e.getMessage());
+			System.out.println("데이터베이스 연결 오류: " + e.getMessage());
 		}
 	}
 
+//작성일자
 	public String getDate() {
 		String SQL = "select now()";
 		try {
@@ -42,18 +44,33 @@ public class boardDAO {
 		return "";
 	}
 
-	public int writeBoard(String name, String id, String pw, String title, String content,
-			int hit) {
-		String SQL = "INSERT INTO web_board(name,id,pw,title,content,date,hit) values (?,?,?,?,?,?,?)";
+	// 게시글 번호 부여
+	public int getNext() {
+		String sql = "select board_idx from web_board order by board_idx desc";
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1) + 1;
+			}
+			return 1;// 첫번째게시물인경우
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;// 데이터베이스오류
+	}
+
+	public int writeBoard(String id, String title, String content) {
+		String SQL = "INSERT INTO web_board values (?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
-			pstmt.setString(1, name);
+			pstmt.setInt(1, getNext());
 			pstmt.setString(2, id);
-			pstmt.setString(3, pw);
-			pstmt.setString(4, title);
-			pstmt.setString(5, content);
-			pstmt.setString(6, getDate());
-			pstmt.setInt(7, hit);
+			pstmt.setString(3, title);
+			pstmt.setString(4, content);
+			pstmt.setString(5, getDate());
+			pstmt.setInt(6, 1);
+			pstmt.setInt(7, 1);// 유효번호
 			pstmt.executeUpdate();
 			return 1;
 		} catch (Exception e) {
@@ -63,55 +80,52 @@ public class boardDAO {
 	}
 
 	public ArrayList<boardVO> getBoardList(int pageNumber) {
-		String SQL = "select * from web_board order by board_idx DESC limit ?,10";
+		String SQL = "select * from web_board <? and Available = 1 order by board_idx DESC limit 10";
 		ArrayList<boardVO> BoardList = new ArrayList<boardVO>();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
-			pstmt.setInt(1, (pageNumber-1)*10);
+			pstmt.setInt(1, (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
+				/*
+				 * boardVO dto=new boardVO(board_idx, id, title, content, date, hit, Available);
+				 * dto.setBoard_idx(rs.getInt(1)); dto.setTitle(rs.getString(2));
+				 * dto.setId(rs.getString(3)); dto.setDate(rs.getDate(4));
+				 * dto.setContent(rs.getString(5)); dto.setHit(rs.getInt(6));
+				 * dto.setAvailable(rs.getInt(7)); BoardList.add(dto);
+				 */
 				int board_idx = rs.getInt("board_idx");
-				String name = rs.getString("name");
 				String id = rs.getString("id");
-				String pw = rs.getString("pw");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
 				Date date = rs.getDate("date");
 				int hit = rs.getInt("hit");
-				boardVO board = new boardVO(board_idx, name, id, pw, title, content, date, hit);
+				int Available = rs.getInt("Available");
+				boardVO board = new boardVO(board_idx, id, title, content, date, hit, Available);
 				BoardList.add(board);
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return BoardList;
 	}
-	
-	public boardVO getBoard(int boardID) {
-		String SQL = "select * from web_board where board_idx = ?";
+
+	public boolean nextPage(int pageNumber) {
+		String sql = "select * from web_board where board_idx < ? and bbsAvailable = 1 order by board_idx dese limt 10 ";
 		try {
-			PreparedStatement pstmt = con.prepareStatement(SQL);
-			pstmt.setInt(1, boardID);
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				int board_idx = rs.getInt("board_idx");
-				String name = rs.getString("name");
-				String id = rs.getString("id");
-				String pw = rs.getString("pw");
-				String title = rs.getString("title");
-				String content = rs.getString("content");
-				Date date = rs.getDate("date");
-				int hit = rs.getInt("hit");
-				boardVO board = new boardVO(board_idx, name, id, pw, title, content, date, hit);
-				return board;
+				return true;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return false;
 	}
 
-	
 	public int updateTitle(String title, int board_idx) {
 		String SQL = "update web_board set title = ? where board_idx = ?";
 		try {
@@ -125,7 +139,7 @@ public class boardDAO {
 		}
 		return -1;
 	}
-	
+
 	public int updateContent(String boardContent, int boardID) {
 		String SQL = "update web_board set content = ? where board_idx = ?";
 		try {
@@ -139,7 +153,7 @@ public class boardDAO {
 		}
 		return -1;
 	}
-	
+
 	public int DeleteBoard(int board_idx) {
 		String SQL = "delete from web_board where board_idx=?";
 		try {
