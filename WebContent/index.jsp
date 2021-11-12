@@ -83,7 +83,7 @@ body {
 						class="sr-only">(current)</span></a></li>
 				<li class="nav-item "><a class="nav-link" href="board.jsp"
 					style="text-align: right">게시판</a></li>
-				<li class="nav-item "><a class="nav-link" href="memberinfo.jsp"
+				<li class="nav-item "><a class="nav-link" href="memberInfo.jsp"
 					style="text-align: right">내정보</a></li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
