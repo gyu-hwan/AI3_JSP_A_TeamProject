@@ -4,24 +4,23 @@ import java.sql.Date;
 
 public class boardVO {
 	private int board_idx;
-	private String name;
+
 	private String id;
-	private String pw;
 	private String title;
 	private String content;
 	private Date date;
 	private int hit;
+	private int Available;
 
-	public boardVO(int board_idx, String name, String id, String pw, String title, String content, Date date,
-			int hit) {
+	public boardVO(int board_idx,  String id, String title, String content, Date date, int hit,
+			int Available) {
 		this.board_idx = board_idx;
-		this.name = name;
 		this.id = id;
-		this.pw = pw;
 		this.title = title;
 		this.content = content;
 		this.date = date;
 		this.hit = hit;
+		this.Available = Available;
 	}
 
 	public void setBoard_idx(int board_idx) {
@@ -32,13 +31,14 @@ public class boardVO {
 		return board_idx;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setAvailable(int Available) {
+		this.Available = Available;
 	}
 
-	public String getName() {
-		return name;
+	public int getAvailable() {
+		return Available;
 	}
+
 
 	public void setId(String id) {
 		this.id = id;
@@ -46,14 +46,6 @@ public class boardVO {
 
 	public String getId() {
 		return id;
-	}
-
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
-
-	public String getPw() {
-		return pw;
 	}
 
 	public void setTitle(String title) {
