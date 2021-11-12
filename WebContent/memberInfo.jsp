@@ -45,7 +45,7 @@ background-size:cover;
 <div class="container">
 		<div class="jumbotron">
 			<div class="container">
-				<h3><%=session.getAttribute("userID")%>님의 회원정보 수정 페이지 입니다.</h3>
+				<h3><%=session.getAttribute("userID")%>님의 회원정보 입니다.</h3>
 				 <%memberDAO memberDAO=new memberDAO(); 
 				 ArrayList<memberVO> dtos=memberDAO.AllMember();
 				 for(int i=0;i<dtos.size();i++){
