@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%><%@ page import="DAO.memberDAO"%><%@page import="java.util.ArrayList"%><%@ page import="DTO.memberVO"%>
 
 <!DOCTYPE html>
 <html>
@@ -45,7 +45,18 @@ background-size:cover;
 <div class="container">
 		<div class="jumbotron">
 			<div class="container">
-				<h3><%=session.getAttribute("userID")%>님의 회원정보 수정 페이지</h3>
+				<h3><%=session.getAttribute("userID")%>님의 회원정보 수정 페이지 입니다.</h3>
+				 <%memberDAO memberDAO=new memberDAO(); 
+				 ArrayList<memberVO> dtos=memberDAO.AllMember();
+				 for(int i=0;i<dtos.size();i++){
+					 memberVO dto=dtos.get(i);
+					 int number=dto.getUser_number();
+					String id =dto.getID();
+					String Name =dto.getName();
+					String phone =dto.getPhone();
+					if(Name.equals(session.getAttribute("userID"))){
+					out.println("회원번호:"+number+"<br>아이디:"+id+"<br>이름:"+Name+"<br>전화번호:"+phone);}
+				 }%>
 			</div>
 		</div>
 	</div>
