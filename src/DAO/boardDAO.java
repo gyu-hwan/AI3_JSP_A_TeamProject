@@ -80,7 +80,7 @@ public class boardDAO {
 	}
 
 	public ArrayList<boardVO> getBoardList(int pageNumber) {
-		String SQL = "select * from web_board <? and Available = 1 order by board_idx DESC limit 10";
+		String SQL = "select * from web_board where ? < Available = 1 order by board_idx DESC limit 10";
 		ArrayList<boardVO> BoardList = new ArrayList<boardVO>();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);

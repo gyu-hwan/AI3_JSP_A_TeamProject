@@ -24,9 +24,10 @@
 	if (session.getAttribute("userID") != null) {
 		userID = (String) session.getAttribute("userID");
 	}
-	int pageNumber = 1; 
+	int pageNumber = 1;
 	if (request.getParameter("pageNumber") != null) {
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		pageNumber-=1;
 	}
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
