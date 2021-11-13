@@ -22,23 +22,24 @@ request.setCharacterEncoding("UTF-8");
 	}
 	%>
 	<%
+	int board_idx=Integer.parseInt(request.getParameter("board_idx"));
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
 
 	boardDAO boardDAO = new boardDAO();
-	int result = boardDAO.writeBoard(userID, title, content);
-	// µ¥ÀÌÅÍº£ÀÌ½º ¿À·ùÀÎ °æ¿ì
+	int result = boardDAO.update(board_idx, title, content);
+	// ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜ì¸ ê²½ìš°
 	if (result == -1) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('±Û¼öÁ¤¿¡ ½ÇÆĞÇß½À´Ï´Ù')");
+		script.println("alert('ê¸€ìˆ˜ì •ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤')");
 		script.println("history.back()");
 		script.println("</script>");
-		// ±Û¾²±â°¡ Á¤»óÀûÀ¸·Î ½ÇÇàµÇ¸é ¾Ë¸²Ã¢À» ¶ç¿ì°í °Ô½ÃÆÇ ¸ŞÀÎÀ¸·Î ÀÌµ¿ÇÑ´Ù
+		// ê¸€ì“°ê¸°ê°€ ì •ìƒì ìœ¼ë¡œ ì‹¤í–‰ë˜ë©´ ì•Œë¦¼ì°½ì„ ë„ìš°ê³  ê²Œì‹œíŒ ë©”ì¸ìœ¼ë¡œ ì´ë™í•œë‹¤
 	} else {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('¼öÁ¤ ¼º°ø')");
+		script.println("alert('ìˆ˜ì • ì„±ê³µ')");
 		script.println("location.href='board.jsp'");
 		script.println("</script>");
 	}
