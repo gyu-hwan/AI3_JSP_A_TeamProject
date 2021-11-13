@@ -8,11 +8,11 @@ public class boardVO {
 	private String id;
 	private String title;
 	private String content;
-	private Date date;
+	private String date;
 	private int hit;
 	private int Available;
 
-	public boardVO(int board_idx,  String id, String title, String content, Date date, int hit,
+	public boardVO(int board_idx,  String id, String title, String content, String date, int hit,
 			int Available) {
 		this.board_idx = board_idx;
 		this.id = id;
