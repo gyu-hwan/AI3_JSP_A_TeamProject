@@ -25,7 +25,7 @@ public class boardDAO {
 					"DB_WEB", "webadmin01");
 			st = con.createStatement();
 		} catch (Exception e) {
-			System.out.println("데이터베이스 오류" + e.getMessage());
+			System.out.println("데이터베이스 연결 오류" + e.getMessage());
 		}
 	}
 
@@ -43,7 +43,7 @@ public String getDate() {
 		return "";
 	}
 
-	// 寃뚯떆湲� 踰덊샇 遺��뿬
+	// 게시글 번호 부여
 	public int getNext() {
 		String sql = "select board_idx from web_board order by board_idx desc";
 		try {
@@ -52,11 +52,11 @@ public String getDate() {
 			if (rs.next()) {
 				return rs.getInt(1) + 1;
 			}
-			return 1;// 泥ル쾲吏멸쾶�떆臾쇱씤寃쎌슦
+			return 1;// 첫번째 게시글인 경우
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;// �뜲�씠�꽣踰좎씠�뒪�삤瑜�
+		return -1;// 데이터베이스 오류
 	}
 
 	public int writeBoard(String id, String title, String content) {
@@ -69,7 +69,7 @@ public String getDate() {
 			pstmt.setString(4, content);
 			pstmt.setString(5, getDate());
 			pstmt.setInt(6, 1);
-			pstmt.setInt(7, 1);// �쑀�슚踰덊샇
+			pstmt.setInt(7, 1);// 
 			return pstmt.executeUpdate();
 
 		} catch (Exception e) {
