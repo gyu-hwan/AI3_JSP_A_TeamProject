@@ -9,14 +9,22 @@ public class booklistVO {
 	private String publisher;
 	private Date year;
 	private int loan;
+	private String contents;
+	private String field;
+	private String imgURL;
 
-	public booklistVO(int book_number, String title, String writer, String publisher, Date year, int loan) {
+	public booklistVO(int book_number, String title, String writer, String publisher, Date year, int loan
+			,String contents,String field,String imgURL) {
 		this.book_number = book_number;
 		this.title = title;
 		this.writer = writer;
 		this.publisher = publisher;
 		this.year = year;
 		this.loan = loan;
+		this.contents = contents;
+		this.field = field;
+		this.imgURL= imgURL;
+		
 	}
 
 	public void setBook_number(int book_number) {
@@ -66,4 +74,23 @@ public class booklistVO {
 	public int getLoan() {
 		return loan;
 	}
+	
+	public void setContent(String Content) {
+		this.contents=Content;
+	}
+	public String getContent() {
+		return	contents;
+	}	
+	public void setField(String field) {
+		this.field=field;
+	}
+	public String getField() {
+		return field;
+	}	
+	public void setImgURL(String ImgURL) {
+		this.imgURL=ImgURL;
+	}
+	public String getImgURL() {
+		return imgURL;
+	}	
 }

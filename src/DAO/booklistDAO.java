@@ -29,7 +29,7 @@ public class booklistDAO {
 		}
 		catch(Exception e)
 		{
-			System.out.println("µ¥ÀÌ¹öÅ×ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
+			System.out.println("ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: "+e.getMessage());
 		}
 	}
 	
@@ -46,7 +46,10 @@ public class booklistDAO {
 				String publisher = rs.getString("publisher");
 				Date year = rs.getDate("year");
 				int loan = rs.getInt("loan");
-				booklistVO booklistVO = new booklistVO(book_number, title, writer, publisher, year, loan);
+				String contents=rs.getString("contents");
+				String field=rs.getString("field");
+				String imgURL=rs.getString("imgURL");
+				booklistVO booklistVO = new booklistVO(book_number, title, writer, publisher, year, loan, contents, field, imgURL);
 				booklist.add(booklistVO);
 			}
 			
@@ -69,7 +72,10 @@ public class booklistDAO {
 				String publisher = rs.getString("publisher");
 				Date year = rs.getDate("year");
 				int loan = rs.getInt("loan");
-				booklistVO booklistVO = new booklistVO(book_number, title, writer, publisher, year, loan);
+				String contents=rs.getString("contents");
+				String field=rs.getString("field");
+				String imgURL=rs.getString("imgURL");
+				booklistVO booklistVO = new booklistVO(book_number, title, writer, publisher, year, loan, contents, field, imgURL);
 				booklist.add(booklistVO);
 			}
 
@@ -79,9 +85,9 @@ public class booklistDAO {
 		return booklist;
 	}
 	
-	public void AddBook(String title, String writer, String publisher, String year, int loan) {
-		String SQL="insert into booklist(title,writer,publisher,year,loan) "
-				+ "values(?,?,?,?,?)";
+	public void AddBook(String title, String writer, String publisher, String year, int loan, String contents,String field,String imgURL) {
+		String SQL="insert into booklist(title,writer,publisher,year,loan,contents,field,imgURL) "
+				+ "values(?,?,?,?,?,?,?,?)";
 		try {
 			pstmt = con.prepareStatement(SQL);
 			pstmt.setString(1, title);
@@ -89,9 +95,12 @@ public class booklistDAO {
 			pstmt.setString(3, publisher);
 			pstmt.setString(4, year);
 			pstmt.setInt(5, loan);
+			pstmt.setString(6, contents);
+			pstmt.setString(7, field);
+			pstmt.setString(8, imgURL);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("µ¥ÀÌÅÍº£ÀÌ½º ¿¬°á ¿À·ù: "+e.getMessage());
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: "+e.getMessage());
 		}
 	}
 	

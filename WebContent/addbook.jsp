@@ -52,14 +52,39 @@
 					<tbody>
 						<tr>
 							<td><input type="text" class="form-control"
-								placeholder="글 제목" name="title" maxlength="100"></td>
+								placeholder="책 제목" name="title" maxlength="100"></td>
 						</tr>
 						<tr>
 							<td><input type="text" class="form-control"
-								placeholder="배경 이미지 URL 입력" name="imgURL" maxlength="100"></td>
+								placeholder="작가 이름" name="writer" maxlength="70"></td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="글 내용"
+							<td><input type="text" class="form-control"
+								placeholder="출판사" name="publisher" maxlength="70"></td>
+						</tr>
+						<tr>
+							<td><input type="date" class="form-control"
+								placeholder="출간일 " name="year" maxlength="70"></td>
+						</tr>
+						<tr>
+							<td><input type="text" class="form-control" list="fieldList"
+								placeholder="분야 " name="field" maxlength="70"></td>
+								<datalist id=fieldList>
+								<option value="소설"></option>
+								<option value="인문"></option>
+								<option value="유아"></option>
+								<option value="건강"></option>
+								<option value="사전"></option>
+								<option value="해외도서"></option>
+								</datalist>
+						</tr>
+						<tr>
+							<td><input type="text" class="form-control"
+								placeholder="배경 이미지 URL 입력" name="imgURL" maxlength="70"></td>
+						</tr>
+						
+						<tr>
+							<td><textarea class="form-control" placeholder="책 설명"
 									name="content" maxlength="1024" style="height: 350px;"></textarea></td>
 						</tr>
 					</tbody>
