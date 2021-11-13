@@ -79,11 +79,10 @@ public class boardDAO {
 		return -1;
 	}
 
-	public int getCount(int Board_idx) {
-		String SQL = "SELECT COUNT(*) FROM web_board WHERE board_idx = ?";
+	public int getCount() {
+		String SQL = "SELECT COUNT(*) FROM web_board";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
-			pstmt.setInt(1, Board_idx);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getInt(1);
