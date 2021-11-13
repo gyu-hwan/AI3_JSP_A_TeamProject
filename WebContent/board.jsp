@@ -28,7 +28,10 @@
 	if (request.getParameter("pageNumber") != null) {
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 	}
-	pageNumber-=1;
+	 int Board_idx = 0;
+		if (request.getParameter("Board_idx") != null){
+			Board_idx = Integer.parseInt(request.getParameter("Board_idx"));
+		}
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="index.jsp">처음으로</a> <a
@@ -71,7 +74,7 @@
 					<tr>
 						<td><%=BoardList.get(i).getBoard_idx()%></td>
 						<!-- 게시글 제목을 누르면 해당 글을 볼 수 있도록 링크를 걸어둔다 -->
-						<td><a href="view.jsp?bbsID=<%=BoardList.get(i).getBoard_idx()%>">
+						<td><a href="view.jsp?board_idx=<%=BoardList.get(i).getBoard_idx()%>">
 								<%=BoardList.get(i).getTitle()%></a></td>
 						<td><%=BoardList.get(i).getId()%></td>
 						<td><%=BoardList.get(i).getDate()%></td>
@@ -83,7 +86,14 @@
 				</tbody>
 			</table>
 			<!-- 페이징 처리 영역 -->
-			
+		<div class=container style="text-align:center">
+			<%
+			boardDAO BoardDAO1 = new boardDAO();
+				int pages = (int) Math.ceil(BoardDAO1.getCount(Board_idx)/10)+1;
+				for(int i=1; i<=pages; i++){ %>
+					<button type="button" onclick="location.href='board.jsp?Board_idx=<%=Board_idx %>&pageNumber=<%=i %>'"><%=i %></button>
+				<%} %>
+		</div>
 
 			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
 		</div>
