@@ -127,8 +127,8 @@
 						<div class="card-header">
                           	<p><%=session.getAttribute("userID")%>님</p>
                           	<p>&nbsp;</p>
-                          	<a href="addbook.jsp""><button class="btn btn-primary" id="button-search" type="button">&nbsp;도서추가</button></a>
-							<a href="memberInfo.jsp""><button class="btn btn-primary" id="button-search" type="button">&nbsp;회원정보</button></a>
+                          	<a href="addBook.jsp"><button class="btn btn-primary" id="button-search" type="button">&nbsp;도서추가</button></a>
+							<a href="memberInfo.jsp"><button class="btn btn-primary" id="button-search" type="button">&nbsp;회원정보</button></a>
 							<a href="logout.jsp"><button class="btn btn-primary" id="button-search" type="button">&nbsp;로그아웃 </button></a>
 						</div>
 					</div>
