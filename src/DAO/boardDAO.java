@@ -29,8 +29,7 @@ public class boardDAO {
 		}
 	}
 
-//작성일자
-	public String getDate() {
+public String getDate() {
 		String SQL = "select now()";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
@@ -71,8 +70,23 @@ public class boardDAO {
 			pstmt.setString(5, getDate());
 			pstmt.setInt(6, 1);
 			pstmt.setInt(7, 1);// 유효번호
-			pstmt.executeUpdate();
-			return 1;
+			return pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+
+	public int getCount(int Board_idx) {
+		String SQL = "SELECT COUNT(*) FROM web_board WHERE board_idx = ?";
+		try {
+			PreparedStatement pstmt = con.prepareStatement(SQL);
+			pstmt.setInt(1, Board_idx);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -87,18 +101,12 @@ public class boardDAO {
 			pstmt.setInt(1, (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				/*
-				 * boardVO dto=new boardVO(board_idx, id, title, content, date, hit, Available);
-				 * dto.setBoard_idx(rs.getInt(1)); dto.setTitle(rs.getString(2));
-				 * dto.setId(rs.getString(3)); dto.setDate(rs.getDate(4));
-				 * dto.setContent(rs.getString(5)); dto.setHit(rs.getInt(6));
-				 * dto.setAvailable(rs.getInt(7)); BoardList.add(dto);
-				 */
+
 				int board_idx = rs.getInt("board_idx");
 				String id = rs.getString("id");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
-				Date date = rs.getDate("date");
+				String date = rs.getString("date");
 				int hit = rs.getInt("hit");
 				int Available = rs.getInt("Available");
 				boardVO board = new boardVO(board_idx, id, title, content, date, hit, Available);
@@ -112,7 +120,7 @@ public class boardDAO {
 	}
 
 	public boolean nextPage(int pageNumber) {
-		String sql = "select * from web_board where board_idx < ? and bbsAvailable = 1 order by board_idx dese limt 10 ";
+		String sql = "select * from web_board where board_idx < ? and Available = 1 ";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
@@ -125,6 +133,31 @@ public class boardDAO {
 		}
 		return false;
 	}
+
+	public boardVO getBoard(int board_idx) {
+		String sql = "select * from web_board where board_idx = ?";
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_idx);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+
+				String id = rs.getString("id");
+				String title = rs.getString("title");
+				String content = rs.getString("content");
+				String date = rs.getString("date");
+				int hit = rs.getInt("hit");
+				int Available = rs.getInt("Available");
+				boardVO board = new boardVO(board_idx, id, title, content, date, hit, Available);
+				return board;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	
 
 	public int updateTitle(String title, int board_idx) {
 		String SQL = "update web_board set title = ? where board_idx = ?";
