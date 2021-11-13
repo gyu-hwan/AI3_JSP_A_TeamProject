@@ -94,11 +94,12 @@ public class boardDAO {
 	}
 
 	public ArrayList<boardVO> getBoardList(int pageNumber) {
-		String SQL = "select * from web_board where ? < Available = 1 order by board_idx DESC limit 10";
+		String SQL = "select * from web_board order by board_idx DESC limit ?, ?";
 		ArrayList<boardVO> BoardList = new ArrayList<boardVO>();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
 			pstmt.setInt(1, (pageNumber - 1) * 10);
+			pstmt.setInt(2, (pageNumber) * 10);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 
@@ -186,6 +187,19 @@ public class boardDAO {
 		return -1;//데이터베이스오류
 	}
 	
+	//조회수 증가
+	public int hitplus(int board_idx,int hit) {
+		String SQL = "update web_board set hit=? where board_idx=?";
+		try {
+		PreparedStatement pstmt = con.prepareStatement(SQL);
+		pstmt.setInt(1,hit+1);
+		pstmt.setInt(2,board_idx);
+		return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
 	
 	
 }

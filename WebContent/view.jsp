@@ -25,6 +25,7 @@
 	int board_idx = 0;
 	if (request.getParameter("board_idx") != null) {
 		board_idx = Integer.parseInt(request.getParameter("board_idx"));
+		
 	}
 	if (board_idx == 0) {
 		PrintWriter script = response.getWriter();
@@ -34,6 +35,8 @@
 		script.println("</script");
 	}
 	boardVO board = new boardDAO().getBoard(board_idx);
+	boardDAO dao=new boardDAO();
+	if(dao.hitplus(board_idx,board.getHit())==(-1)){System.out.print("오류");};
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="index.jsp">처음으로</a> <a
@@ -79,7 +82,7 @@
 					</tr>
 					<tr>
 						<td>조회수</td>
-						<td><%=board.getHit()%></td>
+						<td><%=(board.getHit())+1%></td>
 					</tr>
 					<tr>
 						<td>작성일자</td>
