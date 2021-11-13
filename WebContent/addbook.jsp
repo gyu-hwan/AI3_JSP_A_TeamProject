@@ -39,12 +39,7 @@
 	</nav>
 	<div class="container">
 		<div class="row">
-			<form method="post" enctype="multipart/form-data" class="form-data" action="addBookAction.jsp">
-			<input type="file" name="filename1" size=40>
-			<input type="submit" class="btn btn-primary pull-right" value="배경 업로드">
-			</form>
 			<form method="post"  action="addBookAction.jsp">
-			
 				<table class="table table-striped"
 					style="text-align: center; border: 1px solid #dddddd; width: 600px">
 					<thead>
@@ -58,6 +53,10 @@
 						<tr>
 							<td><input type="text" class="form-control"
 								placeholder="글 제목" name="title" maxlength="100"></td>
+						</tr>
+						<tr>
+							<td><input type="text" class="form-control"
+								placeholder="배경 이미지 URL 입력" name="imgURL" maxlength="100"></td>
 						</tr>
 						<tr>
 							<td><textarea class="form-control" placeholder="글 내용"
