@@ -64,11 +64,11 @@ public class boardVO {
 		return content;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
