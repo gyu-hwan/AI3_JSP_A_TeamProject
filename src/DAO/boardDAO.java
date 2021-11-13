@@ -29,7 +29,8 @@ public class boardDAO {
 		}
 	}
 
-public String getDate() {
+//작성일자
+	public String getDate() {
 		String SQL = "select now()";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
@@ -52,11 +53,11 @@ public String getDate() {
 			if (rs.next()) {
 				return rs.getInt(1) + 1;
 			}
-			return 1;// 첫번째 게시글인 경우
+			return 1;// 첫번째게시물인경우
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;// 데이터베이스 오류
+		return -1;// 데이터베이스오류
 	}
 
 	public int writeBoard(String id, String title, String content) {
@@ -69,7 +70,7 @@ public String getDate() {
 			pstmt.setString(4, content);
 			pstmt.setString(5, getDate());
 			pstmt.setInt(6, 1);
-			pstmt.setInt(7, 1);// 
+			pstmt.setInt(7, 1);// 유효번호
 			return pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -78,10 +79,11 @@ public String getDate() {
 		return -1;
 	}
 
-	public int getCount() {
-		String SQL = "SELECT COUNT(*) FROM web_board";
+	public int getCount(int Board_idx) {
+		String SQL = "SELECT COUNT(*) FROM web_board WHERE board_idx = ?";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
+			pstmt.setInt(1, Board_idx);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getInt(1);
@@ -93,7 +95,7 @@ public String getDate() {
 	}
 
 	public ArrayList<boardVO> getBoardList(int pageNumber) {
-		String SQL = "select * from web_board where Available = 1 order by board_idx DESC limit ?,10";
+		String SQL = "select * from web_board where ? < Available = 1 order by board_idx DESC limit 10";
 		ArrayList<boardVO> BoardList = new ArrayList<boardVO>();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
@@ -132,7 +134,7 @@ public String getDate() {
 		}
 		return false;
 	}
-
+//
 	public boardVO getBoard(int board_idx) {
 		String sql = "select * from web_board where board_idx = ?";
 		try {
@@ -156,46 +158,35 @@ public String getDate() {
 		return null;
 	}
 
-	
-
-	public int updateTitle(String title, int board_idx) {
-		String SQL = "update web_board set title = ? where board_idx = ?";
+//게시글수정	
+	public int update(int board_idx,String title,String content) {
+		String SQL="update web_board set title=?,content=? where board_idx=?";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
 			pstmt.setString(1, title);
-			pstmt.setInt(2, board_idx);
-			pstmt.executeUpdate();
-			return 1;
-		} catch (Exception e) {
+			pstmt.setString(2, content);
+			pstmt.setInt(3, board_idx);
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1;
+		return -1;//데이터베이스오류
 	}
-
-	public int updateContent(String boardContent, int boardID) {
-		String SQL = "update web_board set content = ? where board_idx = ?";
-		try {
-			PreparedStatement pstmt = con.prepareStatement(SQL);
-			pstmt.setString(1, boardContent);
-			pstmt.setInt(2, boardID);
-			pstmt.executeUpdate();
-			return 1;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return -1;
-	}
-
-	public int DeleteBoard(int board_idx) {
-		String SQL = "delete from web_board where board_idx=?";
+	
+	
+//게시글삭제
+	public int delete(int board_idx) {
+		String SQL = "update web_board set Available=0 where board_idx=?";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
 			pstmt.setInt(1, board_idx);
-			pstmt.executeUpdate();
-			return 1;
+			return pstmt.executeUpdate();		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;
+		return -1;//데이터베이스오류
 	}
+	
+	
+	
 }
