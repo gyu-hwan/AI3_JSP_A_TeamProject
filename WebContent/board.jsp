@@ -89,7 +89,7 @@
 		<div class=container style="text-align:center">
 			<%
 			boardDAO BoardDAO1 = new boardDAO();
-				int pages = (int) Math.ceil(BoardDAO1.getCount(Board_idx)/10)+1;
+				int pages = (int) Math.ceil(BoardDAO1.getCount()/10)+1;
 				for(int i=1; i<=pages; i++){ %>
 					<button type="button" onclick="location.href='board.jsp?Board_idx=<%=Board_idx %>&pageNumber=<%=i %>'"><%=i %></button>
 				<%} %>

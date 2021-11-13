@@ -25,7 +25,7 @@ public class boardDAO {
 					"DB_WEB", "webadmin01");
 			st = con.createStatement();
 		} catch (Exception e) {
-			System.out.println("데이터베이스 연결 오류: " + e.getMessage());
+			System.out.println("데이터베이스 오류" + e.getMessage());
 		}
 	}
 
@@ -43,7 +43,7 @@ public String getDate() {
 		return "";
 	}
 
-	// 게시글 번호 부여
+	// 寃뚯떆湲� 踰덊샇 遺��뿬
 	public int getNext() {
 		String sql = "select board_idx from web_board order by board_idx desc";
 		try {
@@ -52,11 +52,11 @@ public String getDate() {
 			if (rs.next()) {
 				return rs.getInt(1) + 1;
 			}
-			return 1;// 첫번째게시물인경우
+			return 1;// 泥ル쾲吏멸쾶�떆臾쇱씤寃쎌슦
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;// 데이터베이스오류
+		return -1;// �뜲�씠�꽣踰좎씠�뒪�삤瑜�
 	}
 
 	public int writeBoard(String id, String title, String content) {
@@ -69,7 +69,7 @@ public String getDate() {
 			pstmt.setString(4, content);
 			pstmt.setString(5, getDate());
 			pstmt.setInt(6, 1);
-			pstmt.setInt(7, 1);// 유효번호
+			pstmt.setInt(7, 1);// �쑀�슚踰덊샇
 			return pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -78,11 +78,10 @@ public String getDate() {
 		return -1;
 	}
 
-	public int getCount(int Board_idx) {
-		String SQL = "SELECT COUNT(*) FROM web_board WHERE board_idx = ?";
+	public int getCount() {
+		String SQL = "SELECT COUNT(*) FROM web_board";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
-			pstmt.setInt(1, Board_idx);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getInt(1);
@@ -94,7 +93,7 @@ public String getDate() {
 	}
 
 	public ArrayList<boardVO> getBoardList(int pageNumber) {
-		String SQL = "select * from web_board where ? < Available = 1 order by board_idx DESC limit 10";
+		String SQL = "select * from web_board where Available = 1 order by board_idx DESC limit ?,10";
 		ArrayList<boardVO> BoardList = new ArrayList<boardVO>();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
