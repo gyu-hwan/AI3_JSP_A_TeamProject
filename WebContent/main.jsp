@@ -24,8 +24,8 @@
                         <li class="nav-item"><a class="nav-link" href="index.jsp">홈</a></li>
                         <li class="nav-item"><a class="nav-link" href="main.jsp">도서관리</a></li>
                         <li class="nav-item"><a class="nav-link" href="board.jsp">게시판</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="logout.jsp">로그아웃</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="memberInfo.jsp">내정보</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="logout.jsp">로그아웃</a></li>
                     </ul>
                 </div>
             </div>
@@ -127,6 +127,7 @@
 						<div class="card-header">
                           	<p><%=session.getAttribute("userID")%>님</p>
                           	<p>&nbsp;</p>
+                          	<a href="addbook.jsp""><button class="btn btn-primary" id="button-search" type="button">&nbsp;도서추가</button></a>
 							<a href="memberInfo.jsp""><button class="btn btn-primary" id="button-search" type="button">&nbsp;회원정보</button></a>
 							<a href="logout.jsp"><button class="btn btn-primary" id="button-search" type="button">&nbsp;로그아웃 </button></a>
 						</div>
