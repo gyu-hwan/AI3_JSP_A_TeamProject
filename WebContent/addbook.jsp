@@ -67,8 +67,7 @@
 								placeholder="출간일 " name="year" maxlength="70"></td>
 						</tr>
 						<tr>
-							<td><input type="text" class="form-control" list="fieldList"
-								placeholder="분야 " name="field" maxlength="70"></td>
+							<td>
 								<datalist id=fieldList>
 								<option value="소설"></option>
 								<option value="인문"></option>
@@ -77,16 +76,23 @@
 								<option value="사전"></option>
 								<option value="해외도서"></option>
 								</datalist>
+								<input type="text" class="form-control" list="fieldList"
+								placeholder="분야 " name="field" maxlength="70"></td>
+								
 						</tr>
 						<tr>
 							<td><input type="text" class="form-control"
-								placeholder="배경 이미지 URL 입력" name="imgURL" maxlength="70"></td>
+								placeholder="배경 이미지 URL 입력" name="imgURL" maxlength="100"></td>
 						</tr>
 						
 						<tr>
 							<td><textarea class="form-control" placeholder="책 설명"
 									name="content" maxlength="1024" style="height: 350px;"></textarea></td>
 						</tr>
+						<tr class="form-control">
+						      <label><input type="radio" name="loan" value="0" checked> 출판됨</label>
+      							<label><input type="radio" name="loan" value="1"> 출판되지않음</label>
+      					</tr>
 					</tbody>
 				</table>
 				<input type="submit" class="btn btn-primary pull-right" value="글쓰기">

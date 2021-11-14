@@ -85,7 +85,7 @@ public class booklistDAO {
 		return booklist;
 	}
 	
-	public void AddBook(String title, String writer, String publisher, String year, int loan, String contents,String field,String imgURL) {
+	public int AddBook(String title, String writer, String publisher, String year, int loan, String contents,String field,String imgURL) {
 		String SQL="insert into booklist(title,writer,publisher,year,loan,contents,field,imgURL) "
 				+ "values(?,?,?,?,?,?,?,?)";
 		try {
@@ -99,9 +99,12 @@ public class booklistDAO {
 			pstmt.setString(7, field);
 			pstmt.setString(8, imgURL);
 			pstmt.executeUpdate();
+			return 1;
 		}catch(Exception e) {
 			System.out.println("�����ͺ��̽� ���� ����: "+e.getMessage());
+			
 		}
+		return -1;
 	}
 	
 	public int updateTitle(String title, int book_number) {
