@@ -31,7 +31,7 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('유효하지 않은 글입니다')");
-		script.println("location.href='board.jsp'");
+		script.println("location.href='board'");
 		script.println("</script");
 	}
 	boardVO board = new boardDAO().getBoard(board_idx);
@@ -39,9 +39,9 @@
 	if(dao.hitplus(board_idx,board.getHit())==(-1)){System.out.print("오류");};
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="index.jsp">처음으로</a> <a
-			class="navbar-brand" href="main.jsp">도서관리</a> <a class="navbar-brand"
-			href="board.jsp">게시판</a>
+		<a class="navbar-brand" href="index">처음으로</a> <a
+			class="navbar-brand" href="main">도서관리</a> <a class="navbar-brand"
+			href="board">게시판</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -52,7 +52,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="nav navbar-nav">
 				<li class="nav-item active"><a class="nav-link"
-					href="logout.jsp" style="text-align: right">로그아웃<span
+					href="logout" style="text-align: right">로그아웃<span
 						class="sr-only">(current)</span></a></li>
 			</ul>
 		</div>
@@ -100,9 +100,9 @@
 			<%
 			if (userID != null && userID.equals(board.getId())) {
 			%>
-			<a href="update.jsp?board_idx=<%=board_idx%>" class="btn btn-primary">수정</a>
+			<a href="update?board_idx=<%=board_idx%>" class="btn btn-primary">수정</a>
 			<a onclick="return confirm('삭제하시겠습니까?')"
-				href="board_deleteAction.jsp?board_idx=
+				href="board_deleteAction?board_idx=
 				<%=board_idx%>
 				"
 				class="btn btn-primary">삭제</a>

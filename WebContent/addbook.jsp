@@ -21,7 +21,7 @@
 	}
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="index.jsp">Main</a>
+		<a class="navbar-brand" href="index">Main</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -32,14 +32,14 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="logout.jsp" style="text-align: right">로그아웃<span
+					href="logout" style="text-align: right">로그아웃<span
 						class="sr-only">(current)</span></a></li>
 			</ul>
 		</div>
 	</nav>
 	<div class="container">
 		<div class="row">
-			<form method="post"  action="addBookAction.jsp">
+			<form method="post"  action="addBookAction">
 				<table class="table table-striped"
 					style="text-align: center; border: 1px solid #dddddd; width: 600px">
 					<thead>

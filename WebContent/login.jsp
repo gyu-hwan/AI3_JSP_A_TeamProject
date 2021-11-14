@@ -11,7 +11,7 @@
     <title>A팀 프로젝트</title>
   </head>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="index.jsp">Main</a>
+  <a class="navbar-brand" href="index">Main</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,10 +19,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="login.jsp" style="text-align:right">로그인<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="login" style="text-align:right">로그인<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="join.jsp" style="text-align:right">회원가입</a>
+        <a class="nav-link" href="join" style="text-align:right">회원가입</a>
       </li>
     </ul>
   </div>
@@ -31,7 +31,7 @@
   <div class="container">
 		<div class="col-lg-4">
 			<div class="jumbotron" style="padding-top: 20px;">
-				<form method="post" action="loginAction.jsp">
+				<form method="post" action="loginAction">
 					<h3 style="text-align: center;">로그인 화면</h3>
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="아이디" name="Id" maxlength="20">
@@ -41,7 +41,7 @@
 					</div>
 					<input type="submit" class="btn btn-primary form-control" value="로그인"><br><br>
 				</form>
-				<form method="post" action="join.jsp">
+				<form method="post" action="join">
 					<input type="submit" class="btn btn-primary form-control" value="회원가입">
 				</form>
 			</div>

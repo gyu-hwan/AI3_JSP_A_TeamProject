@@ -36,7 +36,7 @@ body {
 	if (userID == null) {
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="index.jsp">Main</a>
+		<a class="navbar-brand" href="index">Main</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -47,9 +47,9 @@ body {
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="login.jsp" style="text-align: right">로그인<span
+					href="login" style="text-align: right">로그인<span
 						class="sr-only">(current)</span></a></li>
-				<li class="nav-item"><a class="nav-link" href="join.jsp"
+				<li class="nav-item"><a class="nav-link" href="join"
 					style="text-align: right">회원가입</a></li>
 			</ul>
 		</div>
@@ -59,8 +59,8 @@ body {
 			<div class="container">
 				<h1>도서관리 사이트</h1>
 				<p>이 웹 사이트는 도서관리를 목적으로 만들어 졌습니다</p>
-				<a class="btn btn-primary btn-pull" href="login.jsp" role="button">로그인</a>
-				<a class="btn btn-primary btn-pull" href="join.jsp" role="button">회원가입</a>
+				<a class="btn btn-primary btn-pull" href="login" role="button">로그인</a>
+				<a class="btn btn-primary btn-pull" href="join" role="button">회원가입</a>
 			</div>
 		</div>
 	</div>
@@ -68,7 +68,7 @@ body {
 	} else {
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="index.jsp">Main</a>
+		<a class="navbar-brand" href="index">Main</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -79,15 +79,15 @@ body {
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item  active"><a class="nav-link"
-					href="main.jsp" style="text-align: right">도서관리<span
+					href="main" style="text-align: right">도서관리<span
 						class="sr-only">(current)</span></a></li>
-				<li class="nav-item "><a class="nav-link" href="board.jsp"
+				<li class="nav-item "><a class="nav-link" href="board"
 					style="text-align: right">게시판</a></li>
-				<li class="nav-item "><a class="nav-link" href="memberInfo.jsp"
+				<li class="nav-item "><a class="nav-link" href="memberInfo"
 					style="text-align: right">내정보</a></li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item  active"><a class="nav-link" href="logout.jsp"
+				<li class="nav-item  active"><a class="nav-link" href="logout"
 					style="text-align: right">로그아웃</a></li>
 			</ul>
 		</div>
@@ -98,8 +98,8 @@ body {
 				<h1>도서관리 사이트</h1>
 				<p>이 웹 사이트는 도서관리를 목적으로 만들어 졌습니다</p>
 				<p>환영합니다</p>
-				<a class="btn btn-primary btn-pull" href="main.jsp" role="button">메인화면</a>
-				<a class="btn btn-primary btn-pull" href="logout.jsp" role="button">로그아웃</a>
+				<a class="btn btn-primary btn-pull" href="main" role="button">메인화면</a>
+				<a class="btn btn-primary btn-pull" href="logout" role="button">로그아웃</a>
 			</div>
 		</div>
 	</div>

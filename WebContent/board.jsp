@@ -34,9 +34,9 @@
 		}
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="index.jsp">처음으로</a> <a
-			class="navbar-brand" href="main.jsp">도서관리</a> <a class="navbar-brand"
-			href="board.jsp">게시판</a>
+		<a class="navbar-brand" href="index">처음으로</a> <a
+			class="navbar-brand" href="main">도서관리</a> <a class="navbar-brand"
+			href="board">게시판</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -47,7 +47,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="nav navbar-nav">
 				<li class="nav-item active"><a class="nav-link"
-					href="logout.jsp" style="text-align: right">로그아웃<span
+					href="logout" style="text-align: right">로그아웃<span
 						class="sr-only">(current)</span></a></li>
 			</ul>
 		</div>
@@ -74,7 +74,7 @@
 					<tr>
 						<td><%=BoardList.get(i).getBoard_idx()%></td>
 						<!-- 게시글 제목을 누르면 해당 글을 볼 수 있도록 링크를 걸어둔다 -->
-						<td><a href="view.jsp?board_idx=<%=BoardList.get(i).getBoard_idx()%>">
+						<td><a href="view?board_idx=<%=BoardList.get(i).getBoard_idx()%>">
 								<%=BoardList.get(i).getTitle()%></a></td>
 						<td><%=BoardList.get(i).getId()%></td>
 						<td><%=BoardList.get(i).getDate()%></td>
@@ -91,11 +91,11 @@
 			boardDAO BoardDAO1 = new boardDAO();
 				int pages = (int) Math.ceil(BoardDAO1.getCount()/10)+1;
 				for(int i=1; i<=pages; i++){ %>
-					<button type="button" onclick="location.href='board.jsp?Board_idx=<%=Board_idx %>&pageNumber=<%=i %>'"><%=i %></button>
+					<button type="button" onclick="location.href='board?Board_idx=<%=Board_idx %>&pageNumber=<%=i %>'"><%=i %></button>
 				<%} %>
 		</div>
 
-			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+			<a href="write" class="btn btn-primary pull-right">글쓰기</a>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -25,7 +25,7 @@
 	memberDAO dao=new memberDAO();
 	dao.signUp(userID,userPassword,userName,userPhone);
 	System.out.println("회원가입을 시도함");
-	response.sendRedirect("./index.jsp");
+	response.sendRedirect("./index");
 	}
 	%>
 	</body>

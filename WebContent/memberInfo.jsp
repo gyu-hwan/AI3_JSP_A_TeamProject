@@ -19,7 +19,7 @@ background-size:cover;
     <title>A팀 프로젝트</title>
   </head>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="main.jsp">Main</a>
+  <a class="navbar-brand" href="main">Main</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,16 +27,16 @@ background-size:cover;
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="memberInfo.jsp" style="text-align:right"><%=session.getAttribute("userID")%>님의 회원정보<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="memberInfo" style="text-align:right"><%=session.getAttribute("userID")%>님의 회원정보<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="updatePw.jsp" style="text-align:right">비밀번호 변경</a>
+        <a class="nav-link" href="updatePw" style="text-align:right">비밀번호 변경</a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="updatePhone.jsp" style="text-align:right">휴대폰번호 변경</a>
+        <a class="nav-link" href="updatePhone" style="text-align:right">휴대폰번호 변경</a>
       </li>
 		<li class="nav-item">
-        <a class="nav-link" href="delete.jsp" style="text-align:right">회원 탈퇴</a>
+        <a class="nav-link" href="delete" style="text-align:right">회원 탈퇴</a>
       </li>
     </ul>
   </div>

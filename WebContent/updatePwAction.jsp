@@ -24,7 +24,7 @@
 	int a=dao.updatePW(password,userID);
 	if(a==1){
 		System.out.println("비밀번호가 변경됨");
-		response.sendRedirect("./memberInfo.jsp");
+		response.sendRedirect("./memberInfo");
 		}
 		else{
 			System.out.println("비밀번호 변경 실패");

@@ -25,7 +25,7 @@
 	if(a==1){
 		System.out.println("유저가 삭제됨");
 		session.invalidate();
-		response.sendRedirect("./index.jsp");
+		response.sendRedirect("./index");
 		}
 		else{
 			System.out.println("유저삭제 실패");

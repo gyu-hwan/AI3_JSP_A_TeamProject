@@ -31,11 +31,11 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.jsp">홈</a></li>
-                        <li class="nav-item"><a class="nav-link" href="main.jsp">도서관리</a></li>
-                        <li class="nav-item"><a class="nav-link" href="board.jsp">게시판</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="logout.jsp">로그아웃</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="memberInfo.jsp">내정보</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index">홈</a></li>
+                        <li class="nav-item"><a class="nav-link" href="main">도서관리</a></li>
+                        <li class="nav-item"><a class="nav-link" href="board">게시판</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="logout">로그아웃</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="memberInfo">내정보</a></li>
                     </ul>
                 </div>
             </div>
@@ -144,9 +144,9 @@
 						<div class="card-header">
                           	<p><%=session.getAttribute("userID")%>님</p>
                           	<p>&nbsp;</p>
-                          	<a href="addBook.jsp""><button class="btn btn-primary" id="button-search" type="button">&nbsp;책 리뷰</button></a>
-							<a href="memberInfo.jsp""><button class="btn btn-primary" id="button-search" type="button">&nbsp;회원정보</button></a>
-							<a href="logout.jsp"><button class="btn btn-primary" id="button-search" type="button">&nbsp;로그아웃 </button></a>
+                          	<a href="addBook""><button class="btn btn-primary" id="button-search" type="button">&nbsp;책 리뷰</button></a>
+							<a href="memberInfo""><button class="btn btn-primary" id="button-search" type="button">&nbsp;회원정보</button></a>
+							<a href="logout"><button class="btn btn-primary" id="button-search" type="button">&nbsp;로그아웃 </button></a>
 						</div>
 					</div>
                     <div class="card mb-4">

@@ -24,7 +24,7 @@
 	int a=dao.updatePhone(Phone,userID);
 	if(a==1){
 		System.out.println("전화번호가 변경됨");
-		response.sendRedirect("./memberInfo.jsp");
+		response.sendRedirect("./memberInfo");
 		}
 		else{
 			System.out.println("전화번호 변경 실패");

@@ -40,7 +40,7 @@ String content=request.getParameter("content");
 				PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('글쓰기 성공')");
-		script.println("location.href='board.jsp'");
+		script.println("location.href='board'");
 		script.println("</script>");}
 	
 	%>
