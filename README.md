@@ -12,3 +12,11 @@
 <img src="https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
   
 ###### 프로젝트 기간 2021/11/8~22021/11/14
+
+  ## [Link](https://gyuhwan.com)
+  
+# 메인 페이지
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/DB/C.jpg?raw=true)
+# 플로우차트+ERD
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/DB/DB_ERD.jpg?raw=true)
+  
