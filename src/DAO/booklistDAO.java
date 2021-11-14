@@ -33,11 +33,13 @@ public class booklistDAO {
 		}
 	}
 	
-	public ArrayList<booklistVO> AllBook() {
-		String SQL = "select * from booklist";
+	public ArrayList<booklistVO> AllBook(int page) {
+		String SQL = "select * from booklist ORDER BY book_number DESC limit ?,?";
 		ArrayList<booklistVO> booklist = new ArrayList<booklistVO>();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SQL);
+			pstmt.setInt(1, (page - 1) * 5);
+			pstmt.setInt(2, (page) * 5);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				int book_number = rs.getInt("book_number");

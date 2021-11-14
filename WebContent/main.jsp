@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList" import="DAO.booklistDAO" import="DTO.booklistVO" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,6 +12,16 @@
         <link rel="stylesheet" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="./Resources/css/styles.css" rel="stylesheet" />
+        <%
+                int _page=0;
+                if(session.getAttribute("page")==null){
+                _page=0;
+                }
+                else{_page=(int)session.getAttribute("page");}
+				
+                booklistDAO bookList=new booklistDAO();
+                ArrayList<booklistVO> dtos=bookList.AllBook(1);
+                %>
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -24,8 +34,8 @@
                         <li class="nav-item"><a class="nav-link" href="index.jsp">홈</a></li>
                         <li class="nav-item"><a class="nav-link" href="main.jsp">도서관리</a></li>
                         <li class="nav-item"><a class="nav-link" href="board.jsp">게시판</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="memberInfo.jsp">내정보</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="logout.jsp">로그아웃</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="memberInfo.jsp">내정보</a></li>
                     </ul>
                 </div>
             </div>
@@ -46,12 +56,14 @@
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                    <%booklistVO dto=dtos.get(0);%>
+                        <div style="position: relative;overflow: hidden;height: 350px;">
+                        	<a href="#!"><img class="card-img-top" src="<%=dto.getImgURL()%>" width="850px" alt="..." /></a>
+                        </div>
                         <div class="card-body">
-                            <div class="small text-muted">2021.10.06 출간</div>
-                            <h2 class="card-title">트렌드 코리아 2022</h2>
-                            <p class="card-text">“우리를 죽이지 못하는 것들은 우리를 더 강하게 만든다.”
-니체의 말이다. 거의 2년이 넘는 팬데믹 속에서도 우리는 삶을 이어왔고 고통과 절망 속에서도 미래에 대한 희망의 끈을 놓지 않았다. 획기적이고 거침없는 기술의 발전은 오히려 우리가 꿈꾸던 세상을 더욱 앞당기고 있다. 미증유의 전염병과 현명하게 공생하는 ‘위드 코로나’를 준비하면서 이제 우리는 더 강해지고 있다</p>
+                            <div class="small text-muted"><%=dto.getYear()%> 출간</div>
+                            <h2 class="card-title"><%=dto.getTitle()%></h2>
+                            <p class="card-text"><%=dto.getContent()%></p>
                             <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
@@ -60,23 +72,26 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                            <%booklistVO dto1=dtos.get(1);%>
+                            	<div style="overflow: hidden;height: 350px;">
+                                	<a href="#!"><img class="card-img-top" src="<%=dto1.getImgURL()%>" width="700px" alt="..." /></a>
+                                </div>
                                 <div class="card-body">
-                                    <div class="small text-muted">2021.10.29 출간</div>
-                                    <h2 class="card-title h4">거꾸로 읽는 세계사</h2>
-                                    <p class="card-text">한 시대를 풍미했던 베스트셀러의 귀환
-100만 독자를 사로잡은 ‘이야기의 힘’
-1988년 초판 출간 이후 스테디셀러로 굳건히 자리를 지켰던 유시민의 『거꾸로 읽는 세계사』가 절판 이후 새 얼굴로 출간됐다. ‘전면개정’이라는 수식이 무색할 정도로 30년 넘게 축적된 정보를 꼼꼼하게 보완하고...</p>
+                                    <div class="small text-muted"><%=dto1.getYear()%> 출간</div>
+                                    <h2 class="card-title h4"><%=dto1.getTitle()%></h2>
+                                    <p class="card-text"><%=dto1.getContent()%></p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                            <%booklistVO dto2=dtos.get(2);%>
+                                <a href="#!" style="overflow: hidden;height: 350px;">
+                                <img class="card-img-top" src="<%=dto2.getImgURL()%>" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">2021.11.01 출간</div>
-                                    <h2 class="card-title h4">주식투자 절대원칙</h2>
-                                    <p class="card-text">존 리, 김동환, 이채원 강력 추천! “4,500만 원으로 2,000억 부를 이룬 투자 비결” 자본금 4,500만 원으로 2,000억 원, 약 4,500배 수익률을 거둔 대한민국 최고 주식부자의 투자 비결을 담은 책이 출간됐다. 놀라운 점은 이러한 수익률이 IT 버블, 서브 프라임, 코로나 폭락장과 코스피 2,000에 갇혀 있던...</p>
+                                    <div class="small text-muted"><%=dto2.getYear()%> 출간</div>
+                                    <h2 class="card-title h4"><%=dto2.getTitle()%></h2>
+                                    <p class="card-text"><%=dto2.getContent()%></p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
@@ -84,23 +99,25 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                            <%booklistVO dto3=dtos.get(3);%>
+                                <a href="#!" style="overflow: hidden;height: 350px;">
+                                <img class="card-img-top" src="<%=dto3.getImgURL()%>" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">2021.10.05 출간</div>
-                                    <h2 class="card-title h4">그냥 하지 말라</h2>
-                                    <p class="card-text">생각이 자본이 되는 시대, 당신은 무엇을 보여줄 것인가? 대한민국 최고의 데이터 분석가 송길영이 바라본 10년의 변화상, 10년의 미래상
-우리는 흔히 ‘미래를 알 수 없다’고 생각하지만, 그렇지 않다. 과거와 지금을 보고, 그 안에 담긴 사람들의 욕망을 이해할 수 있으면 미래의 변화를 상당 부분 알 수 있다.</p>
+                                    <div class="small text-muted"><%=dto3.getYear()%> 출간</div>
+                                    <h2 class="card-title h4"><%=dto3.getTitle()%></h2>
+                                    <p class="card-text"><%=dto3.getContent()%></p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                            <%booklistVO dto4=dtos.get(4);%>
+                                <a href="#!" style="overflow: hidden;height: 350px;">
+                                <img class="card-img-top" src="<%=dto4.getImgURL()%>" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">2021.07.27 출간</div>
-                                    <h2 class="card-title h4">달러구트 꿈 백화점 2</h2>
-                                    <p class="card-text">100만 독자를 사로잡은 《달러구트 꿈 백화점》, 그 두 번째 이야기 어느덧 페니가 달러구트 꿈 백화점에서 일한 지도 1년이 넘었다.
-재고가 부족한 꿈을 관리하고, 꿈값 창고에서 감정으로 가득 찬 병을 옮기고, 프런트의 수많은 눈꺼풀 저울을 관리하는 일에 능숙해진 페니는 자신감이 넘친다</p>
+                                    <div class="small text-muted"><%=dto4.getYear()%> 출간</div>
+                                    <h2 class="card-title h4"><%=dto4.getTitle()%></h2>
+                                    <p class="card-text"><%=dto4.getContent()%></p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
@@ -127,8 +144,7 @@
 						<div class="card-header">
                           	<p><%=session.getAttribute("userID")%>님</p>
                           	<p>&nbsp;</p>
-                          	<a href="addBook.jsp"><button class="btn btn-primary" id="button-search" type="button">&nbsp;도서추가</button></a>
-							<a href="memberInfo.jsp"><button class="btn btn-primary" id="button-search" type="button">&nbsp;회원정보</button></a>
+							<a href="memberInfo.jsp""><button class="btn btn-primary" id="button-search" type="button">&nbsp;회원정보</button></a>
 							<a href="logout.jsp"><button class="btn btn-primary" id="button-search" type="button">&nbsp;로그아웃 </button></a>
 						</div>
 					</div>
