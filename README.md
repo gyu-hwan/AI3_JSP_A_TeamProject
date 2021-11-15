@@ -17,6 +17,30 @@
   
 # 메인 페이지
   ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/DB/C.jpg?raw=true)
-# 플로우차트+ERD
-  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/DB/DB_ERD.jpg?raw=true)
+# PPT
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0001.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0002.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0003.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0004.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0005.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0006.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0007.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0008.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0009.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0010.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0011.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0012.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0013.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0014.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0015.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0016.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0017.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0018.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0019.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0020.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0021.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0022.jpg?raw=true)
+  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0023.jpg?raw=true)
+  
+  
   
