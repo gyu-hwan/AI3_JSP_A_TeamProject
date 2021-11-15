@@ -82,7 +82,7 @@
 						</tr>
 						<tr>
 							<td><input type="text" class="form-control"
-								placeholder="배경 이미지 URL 입력" name="imgURL" maxlength="100"></td>
+								placeholder="배경 이미지 URL 입력" name="imgURL" maxlength="200"></td>
 						</tr>
 						
 						<tr>
