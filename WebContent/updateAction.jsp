@@ -39,8 +39,8 @@ request.setCharacterEncoding("UTF-8");
 	} else {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('수정 성공')");
-		script.println("location.href='board.jsp'");
+		script.println("alert('수정성공')");
+		script.println("location.href='board'");
 		script.println("</script>");
 	}
 	%>

@@ -29,7 +29,7 @@ request.setCharacterEncoding("UTF-8");
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('권한이 없습니다')");
-		script.println("location.href='bbs.jsp'");
+		script.println("location.href='bbs'");
 		script.println("</script>");
 	} else {
 		boardDAO BoardDAO = new boardDAO();
@@ -46,7 +46,7 @@ request.setCharacterEncoding("UTF-8");
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('삭제 성공')");
-			script.println("location.href='board.jsp'");
+			script.println("location.href='board'");
 			script.println("</script>");
 		}
 	}

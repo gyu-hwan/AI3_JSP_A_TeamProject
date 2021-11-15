@@ -25,7 +25,12 @@
 	memberDAO dao=new memberDAO();
 	dao.signUp(userID,userPassword,userName,userPhone);
 	System.out.println("회원가입을 시도함");
-	response.sendRedirect("./index");
+	PrintWriter script = response.getWriter();
+	script.println("<script>");
+	script.println("alert('회원가입 성공')");
+	script.println("location.href='index'");
+	script.println("</script>");
+	script.println("location.href='index'");
 	}
 	%>
 	</body>
