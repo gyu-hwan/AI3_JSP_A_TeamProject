@@ -2,7 +2,9 @@
 # AI3_JSP_A_TeamProject <a id="cylinder">
 ![cylinder](https://capsule-render.vercel.app/api?type=cylinder&color=auto&text=AI3%20jsp%20TeamProject&&fontAlignY=45&fontSize=40&height=150&animation=scaleIng&desc=21.11.8~11.13&descAlignY=70)  
 
-<img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white">
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Vim](https://img.shields.io/badge/VIM-%2311AB00.svg?style=for-the-badge&logo=vim&logoColor=white)
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
@@ -13,11 +15,13 @@
   
 ###### 프로젝트 기간 2021/11/8~22021/11/14
 
-  ## [Link](https://gyuhwan.com)
   
 # 메인 페이지
-  ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/DB/C.jpg?raw=true)
-# PPT
+  ![MainPage](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/C.jpg?raw=true)
+  ## [Link](https://gyuhwan.com)
+  ###### 로그인 페이지에서 로그인후 메인 페이지에 접속이 가능합니다
+  # PPT
+  ###### 클릭하여 크게 보실수 있습니다.
   ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0001.jpg?raw=true)
   ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0002.jpg?raw=true)
   ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0003.jpg?raw=true)
