@@ -57,10 +57,14 @@ body {
 	<div class="container">
 		<div class="jumbotron">
 			<div class="container">
-				<h1>도서관리 사이트</h1>
+				<h1>A팀 JSP 도서관리 사이트</h1>
 				<p>이 웹 사이트는 도서관리를 목적으로 만들어 졌습니다</p>
+				<hr>
+				<p>프로젝트 기간 2021/11/8~11/14</p>
+				<a class="btn btn-outline-dark" href="https://github.com/gyu-hwan/AI3_JSP_A_TeamProject">Github</a>
 				<a class="btn btn-primary btn-pull" href="login" role="button">로그인</a>
 				<a class="btn btn-primary btn-pull" href="join" role="button">회원가입</a>
+				<a class="btn btn-dark" href="main">미리보기</a>
 			</div>
 		</div>
 	</div>
