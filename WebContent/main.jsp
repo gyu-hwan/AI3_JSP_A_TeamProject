@@ -143,13 +143,10 @@
                     <div class="card mb-4">
 						<div class="card-header">
                           	<p>
-					<%
-					if (session.getAttribute("userID")=="null")
-						{out.print("비회원");}
-					else
-						{session.getAttribute("userID")}
-					%>
-				</p>
+                        <%if (session.getAttribute("userID")==null){out.print("비회원입니다.");}
+                        else{out.print(session.getAttribute("userID")+"님 환영합니다!");}
+                        %>
+                        </p>
                           	<p>&nbsp;</p>
                           	<a href="addBook""><button class="btn btn-primary" id="button-search" type="button">&nbsp;책 리뷰</button></a>
 							<a href="memberInfo""><button class="btn btn-primary" id="button-search" type="button">&nbsp;회원정보</button></a>
