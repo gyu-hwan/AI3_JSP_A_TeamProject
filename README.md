@@ -20,6 +20,7 @@
   ![MainPage](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/C.jpg?raw=true)
   ## [Link](https://gyuhwan.com)
   ###### 로그인 페이지에서 로그인후 메인 페이지에 접속이 가능합니다
+  ###### 22.01/11 구글 애널리틱스 추가됨
   # PPT
   ###### 클릭하여 크게 보실수 있습니다.
   ![](https://github.com/gyu-hwan/AI3_JSP_A_TeamProject/blob/main/PPT/0001.jpg?raw=true)
